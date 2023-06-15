@@ -6,7 +6,7 @@
   <link href="https://lukasavage.github.io/atom.xml" rel="self"/>
   
   <link href="https://lukasavage.github.io/"/>
-  <updated>2023-05-20T11:23:07.499Z</updated>
+  <updated>2023-06-05T14:31:22.324Z</updated>
   <id>https://lukasavage.github.io/</id>
   
   <author>
@@ -17,11 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>react_fiber</title>
+    <link href="https://lukasavage.github.io/2023/06/05/react-fiber/"/>
+    <id>https://lukasavage.github.io/2023/06/05/react-fiber/</id>
+    <published>2023-06-05T14:05:00.000Z</published>
+    <updated>2023-06-05T14:31:22.324Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;fiber之前&quot;&gt;&lt;a href=&quot;#fiber之前&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术区" scheme="https://lukasavage.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8C%BA/"/>
+    
+    
+    <category term="react" scheme="https://lukasavage.github.io/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react18源码解读</title>
+    <link href="https://lukasavage.github.io/2023/06/05/react-react18/"/>
+    <id>https://lukasavage.github.io/2023/06/05/react-react18/</id>
+    <published>2023-06-05T13:55:15.000Z</published>
+    <updated>2023-06-15T14:20:24.201Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、写在开头&quot;&gt;&lt;a href=&quot;#一、写在开头&quot; class=&quot;headerlink&quot; title=&quot;一、写在开头&quot;&gt;&lt;/a&gt;一、写在开头&lt;/h1&gt;&lt;p&gt;首先让我们从源头开始出发&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="技术区" scheme="https://lukasavage.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8C%BA/"/>
+    
+    
+    <category term="react" scheme="https://lukasavage.github.io/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
     <title>序章</title>
     <link href="https://lukasavage.github.io/2023/05/20/hello-world/"/>
     <id>https://lukasavage.github.io/2023/05/20/hello-world/</id>
     <published>2023-05-19T16:00:00.000Z</published>
-    <updated>2023-05-20T11:23:07.499Z</updated>
+    <updated>2023-06-05T14:19:00.580Z</updated>
     
     
       
