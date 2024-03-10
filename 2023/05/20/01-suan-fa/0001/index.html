@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="home, 露卡菌">
-    <meta name="description" content="这个人很强">
+    <meta name="keywords" content="给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能, 露卡菌">
+    <meta name="description" content="给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能。一、故事的背景
+这道题曾是笔者在21年碰到的高频面试题，一些大厂非常喜欢考这道题，当时自己没有复盘在面试过程中中来来回回碰到了3次都被解决，故而痛定思痛，最终把这到题深">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>home | 露卡菌</title>
+    <title>给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能 | 露卡菌</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -337,12 +338,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">home</h1>
+                    <h1 class="description center-align post-title">给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能</h1>
                 </div>
             </div>
         </div>
@@ -364,12 +365,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8C%BA/" class="post-category">
+                                技术区
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -387,14 +401,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -417,7 +431,140 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能。"><a href="#给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能。" class="headerlink" title="给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能。"></a>给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能。</h1><h2 id="一、故事的背景"><a href="#一、故事的背景" class="headerlink" title="一、故事的背景"></a>一、故事的背景</h2><blockquote>
+<p>这道题曾是笔者在21年碰到的高频面试题，一些大厂非常喜欢考这道题，当时自己没有复盘在面试过程中中来来回回碰到了3次都被解决，故而痛定思痛，最终把这到题深深刻在自己的 <code>DNA</code>上，以思其过。</p>
+</blockquote>
+<h2 id="二、算法的前置知识"><a href="#二、算法的前置知识" class="headerlink" title="二、算法的前置知识"></a>二、算法的前置知识</h2><ul>
+<li>二进制、位运算</li>
+<li>剪枝的思想</li>
+<li>时间、空间复杂度分析与优化</li>
+</ul>
+<h2 id="三、深入分析"><a href="#三、深入分析" class="headerlink" title="三、深入分析"></a>三、深入分析</h2><h3 id="3-1-降维分析、化繁为简"><a href="#3-1-降维分析、化繁为简" class="headerlink" title="3.1 降维分析、化繁为简"></a>3.1 降维分析、化繁为简</h3><p>首先我们从题干出发，题干信息很简单，核心问题在于</p>
+<blockquote>
+<p>如何从数组中选取 <code>N</code> 个数进行求和运算。</p>
+</blockquote>
+<p>假如 <code>N = 2</code> ，也就是找出数组中两个数的和为 <code>M</code> 的话，你可能会立马想到 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/description/">力扣</a> 中的第1题：两数和 的问题，即采用嵌套<code>for</code>循环的方式来解（时间复杂度<code>O(n^2)</code>，空间复杂度<code>O(1)</code>）。</p>
+<p>但问题是 <code>N = 2</code> 或者 <code>N = 10+</code> 的话，会发现运算量越来越大，显然上面的方式已经行不通了。</p>
+<p>我们不妨换个思想↓</p>
+<p><strong>数组中选取不固定数值 <code>N</code> ，我们可以尝试着使用标记的方式，我们把 <code>1</code> 表示成选取状态， 把 <code>0</code> 表示成未选取状态。</strong></p>
+<blockquote>
+<p>假设我们有一个数组<code>arr = [1, 2, 3, 4]</code>，每一个元素都用 <code>0</code> 或  <code>1</code> 来标记，如果 <code>N=4</code> ，也就是在这个数组中，需要选择 <code>4</code> 个元素，那么对应的标记就只有一种可能 <code>1111</code> ，如果 <code>N=3</code> ，那就有 <code>4</code> 种可能，分别是 <code>1110</code> 、 <code>1101</code> 、<code>1011</code> 以及 <code>0111</code> 这 <code>4</code> 种可能。</p>
+</blockquote>
+<p>也就是说：</p>
+<p><strong>标记中有几个 <code>1</code> 就是代表选取了几个数，然后再去遍历这些 <code>1</code> 所有可能存在的排列方式，最后做一个判断，这个判断就是：每一种排列方式，都代表着数组中不同位置的被选中的数的组合，所以这里就是将选中的这些数字，进行求和运算，然后判断求出的和是不是等于 <code>M</code> 。</strong></p>
+<p>于是问题就变得简单了。</p>
+<hr>
+<h3 id="3-2-设计与数组的关联性"><a href="#3-2-设计与数组的关联性" class="headerlink" title="3.2 设计与数组的关联性"></a>3.2 设计与数组的关联性</h3><p>以上面的 <code>arr = [1, 2, 3, 4]</code> 为例，有 <code>4</code> 个元素，则我们选择元素的方式有从 <code>0000</code>（ <code>N = 0</code> ）到 <code>1111</code>( <code>N = 4</code> ) 的所有可能。而 <code>1111</code> 在二进制中对应的数字是<code>15</code>,也就是说在<code>N</code>不确定的情况,下我们选择的组合总共有<code>16</code>种。</p>
+<p>这里我们采用位运算——&gt; <font color="#08e">左移</font> 运算。即<code>1 &lt;&lt; 4</code> 的结果为<code>16</code>。</p>
+<blockquote>
+<p>补充：如果<code>a</code>的二进制位<code>0111</code>, <code>a&lt;&lt;2</code>的结果为<code>11100</code>。</p>
+</blockquote>
+<p>对此，我们可以编码如下</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 用res盛放题目所有可能</span>
+    len <span class="token operator">=</span> <span class="token constant">A</span><span class="token punctuation">.</span>length<span class="token punctuation">,</span>
+    bit <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> len <span class="token comment">// 所有可能的数量</span>
+
+<span class="token comment">// 这里忽略了 0 的情况(N = 0)，取值就是 1 - 15</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> bit<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>这里解释下为何我们要用<code>位运算</code>：由于我们考虑的是最优解，而位运算直接用二进制进行表示，计算机省去了中间过程的各种复杂转换，从而提高了速度。</p>
+</blockquote>
+<h3 id="3-3-设计二进制数中1的个数的功能函数"><a href="#3-3-设计二进制数中1的个数的功能函数" class="headerlink" title="3.3 设计二进制数中1的个数的功能函数"></a>3.3 设计二进制数中<code>1</code>的个数的功能函数</h3><p>首先补充下<code>位运算</code>的规则↓</p>
+<blockquote>
+<p>&amp; 按位与(遇0则0)<br>例子：var a=7,b=11;  a &amp; b的结果是？<br>a的二进制是0111，b的二进制是1011<br>规则：0对1、1对0、0对0==&gt;结果为0<br>1对1 ==&gt;结果为1<br>结果：<br> 0 1 1 1</p>
+<p>1 0 1 1</p>
+<p>0 0 1 1  ==&gt; 等于3<br>| 按位或(遇1则1)<br>规则：0对1、1对0、1对1==&gt;结果为1<br>0对0 ==&gt;结果为0</p>
+</blockquote>
+<p><strong>我们可以建立一个迭代，通过统计消除的次数，就能确定最终有几个 <code>1</code> 了。</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
+ * 用于计算二进制中1的数量
+ * @param {number} num 当前二进制对应的数字 
+ * @returns 
+ */</span>
+<span class="token keyword">const</span> <span class="token function-variable function">n</span> <span class="token operator">=</span> <span class="token parameter">num</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        num <span class="token operator">&amp;=</span> num <span class="token operator">-</span> <span class="token number">1</span>
+        count<span class="token operator">++</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> count
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-3-设计计算和为M"><a href="#3-3-设计计算和为M" class="headerlink" title="3.3 设计计算和为M"></a>3.3 设计计算和为<code>M</code></h3><p>上一节中我们已经筛选出所有取<code>N</code>个数字的所有排列，这时我们还需要再次筛选，即：我们需要从第一次筛选的排列中找到和为<code>M</code>的所有组合，而这些组合就是我们的答案。</p>
+<p>那么问题来了，我们如何去找出这些数呢？答案还是通过<code>左移</code>。</p>
+<blockquote>
+<p>比如：<code>14</code> 的二进制表示为 <code>1110</code>，其代表（从右往左）选取了第 <code>2</code> , <code>3</code> , <code>4</code> 位。</p>
+<p>1110 &amp; 0001（1&lt;&lt;0） === 0000   等与0，第一位不选取</p>
+<p>1110 &amp; 0010 （1&lt;&lt;1）=== 0010  不等于0，第二位选取</p>
+<p>1110 &amp; 0100 （1&lt;&lt; 2) === 0100  不等于0，第三位选取</p>
+<p>1110 &amp; 1000 （1&lt;&lt;3）=== 1000  不等于0，第四位选取</p>
+</blockquote>
+<p>所以我们可以推出第二次筛选的代码</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 所以， 1110 对应着 第一位没有选取，那么 1110 &amp; 0001(设置为第一位的位掩码) = 0，如果 i &amp; (1 &lt;&lt; inx) !== 0 代表该位被选取了</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> j<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 代表这个数被选取了，我们做累加求和就行</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-4-得出结果"><a href="#3-4-得出结果" class="headerlink" title="3.4 得出结果"></a>3.4 得出结果</h3><p>最终，我们的代码如下</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token parameter"><span class="token constant">A</span><span class="token punctuation">,</span> <span class="token constant">N</span><span class="token punctuation">,</span> <span class="token constant">M</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/**
+   * 用于计算二进制中1的数量
+   * @param {number} num 当前二进制对应的数字 
+   * @returns 
+   */</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">n</span> <span class="token operator">=</span> <span class="token parameter">num</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      num <span class="token operator">&amp;=</span> num <span class="token operator">-</span> <span class="token number">1</span>
+      count<span class="token operator">++</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> count
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    len <span class="token operator">=</span> <span class="token constant">A</span><span class="token punctuation">.</span>length<span class="token punctuation">,</span>
+    bit <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> len
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> bit<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">n</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token constant">N</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        temp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          s <span class="token operator">+=</span> <span class="token constant">A</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+          temp<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token constant">A</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">===</span> <span class="token constant">M</span><span class="token punctuation">)</span> res<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> res
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-5-复杂度分析"><a href="#3-5-复杂度分析" class="headerlink" title="3.5 复杂度分析"></a>3.5 复杂度分析</h3><ul>
+<li><p><font color="#f90">时间复杂度：</font></p>
+<ul>
+<li><code>n(num)</code> 函数用于计算一个数字在二进制表示中1的个数。它使用了<code>num &amp;= num - 1</code>这个技巧来消除最低位的1，直到<code>num</code>变为0。每次循环，<code>num</code>至少减少一个1，因此最多循环<code>num</code>中1的个数次。在最坏情况下，<code>num</code>是一个全1的二进制数，即<code>2^len - 1</code>，其中<code>len</code>是集合A的长度。因此，<code>n(num)</code>的时间复杂度是O(n)。</li>
+<li>外层循环<code>for (let i = 1; i &lt; bit; i++)</code>遍历了所有可能的子集，其中<code>bit = 1 &lt;&lt; len</code>，即<code>2^len</code>。因此，外层循环的次数是<code>2^n</code>。</li>
+<li>内层循环<code>for (let j = 0; j &lt; len; j++)</code>对于每个<code>i</code>，都遍历了集合A的所有元素，所以它的时间复杂度是O(n)。</li>
+</ul>
+<p>综上所述，总的时间复杂度是外层循环的次数乘以内层循环的次数再乘以<code>n(num)</code>的时间复杂度，即O(len * 2^len * len) = O(n^2 * 2^n)。</p>
+</li>
+<li><p><font color="#f90">空间复杂度：</font></p>
+<ul>
+<li><code>res</code>数组用于存储所有满足条件的子集，其最大长度取决于满足条件的子集数量。在最坏情况下，所有<code>2^len</code>个子集中可能有多个满足条件，因此<code>res</code>的空间复杂度可能是O(2^len)，但这取决于实际满足条件的子集数量。</li>
+<li><code>temp</code>数组用于存储当前正在检查的子集，其长度最多为<code>len</code>，因此它的空间复杂度是O(n)。</li>
+<li><code>n(num)</code>函数中的<code>count</code>变量和循环中的其他局部变量占用的空间是常量级的，可以忽略不计。</li>
+</ul>
+<p>因此，空间复杂度主要由<code>res</code>数组决定，如果考虑最坏情况，则是O(2^n)。如果考虑平均情况或实际情况（满足条件的子集数量较少），则空间复杂度可能会低于O(2^n)。</p>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -443,7 +590,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lukasavage.github.io/home/index.html">https://lukasavage.github.io/home/index.html</a>
+                    <a href="https://lukasavage.github.io/2023/05/20/01-suan-fa/0001/">https://lukasavage.github.io/2023/05/20/01-suan-fa/0001/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -480,7 +627,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -556,7 +707,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2023-05-20T10-52-24',
+        id: '2023-05-20T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -584,18 +735,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/home/index.html">
+                <a href="/2023/05/20/00-xu-zhang/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="home">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="序章">
                         
-                        <span class="card-title">home</span>
+                        <span class="card-title">序章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -605,18 +755,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-20
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            lukaSavage
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E6%B4%BB%E5%8C%BA/" class="post-category">
+                                    生活区
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                        <span class="chip bg-color">生活</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -627,13 +788,13 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/home/index.html">
+                <a href="/2023/05/20/01-suan-fa/0001/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="home">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能">
                         
-                        <span class="card-title">home</span>
+                        <span class="card-title">给定一个不重复的正整数集合A，从中取N个数字，使他们的和为M的所有可能</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -648,13 +809,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            lukaSavage
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8C%BA/" class="post-category">
+                                    技术区
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

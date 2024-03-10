@@ -434,7 +434,7 @@ const element = (
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、写在开头"><a href="#一、写在开头" class="headerlink" title="一、写在开头"></a>一、写在开头</h1><p>首先让我们从源头开始出发</p>
+                <h2 id="一、写在开头"><a href="#一、写在开头" class="headerlink" title="一、写在开头"></a>一、写在开头</h2><p>首先让我们从源头开始出发</p>
 <pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRoot <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-dom/client'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
@@ -445,7 +445,7 @@ const element = (
 root<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>react整体渲染过程主要用到了两个方法，即 <code>createRoot</code> 和 <code>render</code> 方法，createRoot方法主要是创建根 Fiber 与其真实DOM根节点之间的联系；而<code>render</code> 方法负责Fiber树的生成以及将Fiber树变成真实DOM树并渲染的一个过程。</p>
-<h1 id="二、createRoot方法主要做了什么？"><a href="#二、createRoot方法主要做了什么？" class="headerlink" title="二、createRoot方法主要做了什么？"></a>二、createRoot方法主要做了什么？</h1><h2 id="2-1-大致流程"><a href="#2-1-大致流程" class="headerlink" title="2.1  大致流程"></a>2.1  大致流程</h2><ol>
+<h2 id="二、createRoot方法主要做了什么？"><a href="#二、createRoot方法主要做了什么？" class="headerlink" title="二、createRoot方法主要做了什么？"></a>二、createRoot方法主要做了什么？</h2><h3 id="2-1-大致流程"><a href="#2-1-大致流程" class="headerlink" title="2.1  大致流程"></a>2.1  大致流程</h3><ol>
 <li>通过<code>createContainer</code> 方法创建<strong>FiberNode</strong>的一个根实例，即<font color="#f00">未初始化的根Fiber</font>。</li>
 <li>建立 <code>FiberRootNode</code>与 <code>HostRootFiber</code>之间的联系。</li>
 <li>初始化循环队列。</li>
@@ -541,7 +541,7 @@ root<span class="token punctuation">.</span><span class="token function">render<
     fiber<span class="token punctuation">.</span>updateQueue <span class="token operator">=</span> queue<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="2-2-图文解析"><a href="#2-2-图文解析" class="headerlink" title="2.2 图文解析"></a>2.2 图文解析</h2><p><img src="/../images/01%E3%80%81createFiber.jpg" alt="createfiber结构图"></p>
+<h3 id="2-2-图文解析"><a href="#2-2-图文解析" class="headerlink" title="2.2 图文解析"></a>2.2 图文解析</h3><p><img src="/../images/01%E3%80%81createFiber.jpg" alt="createfiber结构图"></p>
 <p><img src="/../images/02%E3%80%81createRoot%E7%9A%84%E7%BB%93%E6%9E%84.png" alt="createfiber细节图"></p>
 
                 
@@ -569,7 +569,7 @@ root<span class="token punctuation">.</span><span class="token function">render<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lukasavage.github.io/2023/06/05/react-react18/">https://lukasavage.github.io/2023/06/05/react-react18/</a>
+                    <a href="https://lukasavage.github.io/2023/06/05/02-react-yuan-ma/react-react18/">https://lukasavage.github.io/2023/06/05/02-react-yuan-ma/react-react18/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -718,7 +718,7 @@ root<span class="token punctuation">.</span><span class="token function">render<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/06/05/react-fiber/">
+                <a href="/2023/06/05/02-react-yuan-ma/react-fiber/">
                     <div class="card-image">
                         
                         
@@ -767,7 +767,7 @@ root<span class="token punctuation">.</span><span class="token function">render<
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/05/20/hello-world/">
+                <a href="/2023/05/20/00-xu-zhang/hello-world/">
                     <div class="card-image">
                         
                         
@@ -991,7 +991,7 @@ root<span class="token punctuation">.</span><span class="token function">render<
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023</span>
+                <span id="year">2023-2024</span>
             
             <a href="/about" target="_blank">lukaSavage</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1000,7 +1000,7 @@ root<span class="token punctuation">.</span><span class="token function">render<
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1k</span>
+                        class="white-color">3k</span>
             
             
             
